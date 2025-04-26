@@ -1,0 +1,275 @@
+:root {
+    --primary: #00ff88;
+    --secondary: #00b362;
+    --dark: #121212;
+    --darker: #0a0a0a;
+    --light: #f8f8f8;
+    --gray: #2a2a2a;
+    --card-bg: #1e1e1e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    padding: 2rem;
+    text-align: center;
+    background: linear-gradient(to right, var(--darker), var(--dark));
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 30%, var(--primary), transparent);
+    opacity: 0.1;
+    z-index: 0;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.category-card {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gray);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+.category-card:hover {
+    transform: perspective(1000px) rotateY(10deg) rotateX(5deg) translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
+    border-color: var(--primary);
+}
+
+.category-card h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.category-card p {
+    color: #ccc;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: var(--darker);
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+}
+
+.workout-details, .doubt-form-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.workout-details.active, .doubt-form-container.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.workout-content, .doubt-form {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    border: 1px solid var(--primary);
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.workout-content h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.workout-content h3 {
+    color: var(--light);
+    margin: 1.5rem 0 0.5rem;
+    border-bottom: 1px solid var(--gray);
+    padding-bottom: 0.5rem;
+}
+
+.workout-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.workout-image {
+    width: 100%;
+    height: 200px;
+    background-color: var(--gray);
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Doubt Form Styles */
+.doubt-form h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--light);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--gray);
+    background-color: var(--dark);
+    color: var(--light);
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.ask-doubt-btn {
+    display: block;
+    margin: 3rem auto 0;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: var(--darker);
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ask-doubt-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+}
+
+.success-message {
+    color: var(--primary);
+    text-align: center;
+    margin-top: 1rem;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .categories {
+        grid-template-columns: 1fr;
+    }
+}

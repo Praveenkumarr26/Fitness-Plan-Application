@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Freak | Workout Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>NextRep</h1>
+        <p class="tagline">Push Past Limits. One Rep at a Time.</p>
+    </header>
+
+    <div class="container">
+        <h2>Choose Your Fitness Goal</h2>
+        <div class="categories">
+            <div class="category-card" data-category="weight-gain">
+                <h2>Weight Gain</h2>
+                <p>Build muscle mass and increase strength with our specialized weight gain workout routines and nutrition plans.</p>
+                <button class="btn view-plan">View Plan</button>
+            </div>
+
+            <div class="category-card" data-category="weight-loss">
+                <h2>Weight Loss</h2>
+                <p>Shed those extra pounds with our effective fat-burning workouts and diet recommendations for sustainable weight loss.</p>
+                <button class="btn view-plan">View Plan</button>
+            </div>
+
+            <div class="category-card" data-category="sixpack">
+                <h2>Six Pack Abs</h2>
+                <p>Carve out those washboard abs with targeted core exercises and low body fat percentage strategies.</p>
+                <button class="btn view-plan">View Plan</button>
+            </div>
+
+            <div class="category-card" data-category="belly-fat">
+                <h2>Lose Belly Fat</h2>
+                <p>Specifically target stubborn belly fat with our combination of HIIT, core workouts, and dietary adjustments.</p>
+                <button class="btn view-plan">View Plan</button>
+            </div>
+
+            <div class="category-card" data-category="strength">
+                <h2>Strength Training</h2>
+                <p>Increase your raw power and build functional strength with progressive overload techniques.</p>
+                <button class="btn view-plan">View Plan</button>
+            </div>
+
+            <div class="category-card" data-category="endurance">
+                <h2>Endurance Building</h2>
+                <p>Improve your stamina and cardiovascular health with endurance-focused workout routines.</p>
+                <button class="btn view-plan">View Plan</button>
+            </div>
+        </div>
+
+        <button class="ask-doubt-btn" id="askDoubtBtn">Ask a Doubt About Workouts</button>
+    </div>
+
+    <!-- Workout Details Modal -->
+    <div class="workout-details">
+        <div class="workout-content">
+            <button class="close-btn">&times;</button>
+            <h2 id="workout-title">Workout Plan</h2>
+            <div class="workout-image" id="workout-image"></div>
+            <div id="workout-content">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Doubt Form Modal -->
+    <div class="doubt-form-container">
+        <div class="doubt-form">
+            <button class="close-btn" id="closeDoubtForm">&times;</button>
+            <h2>Ask Your Workout Doubt</h2>
+            <form id="doubtForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category">Workout Category</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select a category</option>
+                        <option value="weight-gain">Weight Gain</option>
+                        <option value="weight-loss">Weight Loss</option>
+                        <option value="sixpack">Six Pack Abs</option>
+                        <option value="belly-fat">Lose Belly Fat</option>
+                        <option value="strength">Strength Training</option>
+                        <option value="endurance">Endurance Building</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="doubt">Your Doubt/Question</label>
+                    <textarea id="doubt" name="doubt" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Submit Doubt</button>
+                <p class="success-message" id="successMessage">Your doubt has been submitted! We'll get back to you soon.</p>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
